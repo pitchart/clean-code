@@ -10,9 +10,9 @@ namespace Trivia
         {
             var aGame = new Game();
 
-            aGame.AddPlayer("Chet");
-            aGame.AddPlayer("Pat");
-            aGame.AddPlayer("Sue");
+            aGame.Add("Chet");
+            aGame.Add("Pat");
+            aGame.Add("Sue");
 
             var rand = new Random();
 
@@ -26,7 +26,7 @@ namespace Trivia
                 }
                 else
                 {
-                    _notAWinner = aGame.WasWronglyAnswered();
+                    _notAWinner = aGame.WrongAnswer();
                 }
             } while (_notAWinner);
         }

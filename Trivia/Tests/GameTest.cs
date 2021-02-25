@@ -1,47 +1,40 @@
-using ApprovalTests;
-using ApprovalTests.Reporters;
 using System;
 using System.IO;
+using ApprovalTests;
+using ApprovalTests.Reporters;
 using Trivia;
 using Xunit;
 
 
 namespace Tests
 {
-    [Collection("Sequential")]
     [UseReporter(typeof(DiffReporter))]
-    public class GameTest_GoldenMaster
+    public class GameTest
     {
-        private Game game;
-
-        public GameTest_GoldenMaster()
-        {
-            game = new Game();
-        }
-
         [Fact]
         public void Test1()
         {
             var fakeconsole = new StringWriter();
             Console.SetOut(fakeconsole);
-            game.AddPlayer("Cedric");
-            game.AddPlayer("Eloïse");
+            var game = new Game();
+            game.Add("Cedric");
             game.Roll(12);
-            game.WasWronglyAnswered();
+            game.WrongAnswer();
             game.Roll(2);
             game.Roll(13);
             game.WasCorrectlyAnswered();
             game.Roll(13);
             Approvals.Verify(fakeconsole.ToString());
         }
-
+        
         [Fact]
         public void Test2()
         {
             var fakeconsole = new StringWriter();
             Console.SetOut(fakeconsole);
-            game.AddPlayer("Cedric");
-            game.AddPlayer("Eloïse");
+            var game = new Game();
+            game.Add("Cedric");
+            game.Add("Eloïse");
             game.Roll(1);
             game.WasCorrectlyAnswered();
             game.Roll(2);
@@ -64,16 +57,17 @@ namespace Tests
             game.WasCorrectlyAnswered();
             Approvals.Verify(fakeconsole.ToString());
         }
-
+        
         [Fact]
         public void Test3()
         {
             var fakeconsole = new StringWriter();
             Console.SetOut(fakeconsole);
-            game.AddPlayer("Cedric");
-            game.AddPlayer("Eloïse");
+            var game = new Game();
+            game.Add("Cedric");
+            game.Add("Eloïse");
             game.Roll(1);
-            game.WasWronglyAnswered();
+            game.WrongAnswer();
             game.Roll(2);
             game.WasCorrectlyAnswered();
             game.Roll(2);

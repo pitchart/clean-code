@@ -2,7 +2,7 @@ using System;
 
 namespace SOLID.InterfaceSegregation
 {
-    public class MultiFunctionCopier : ICanPrint, ICanFax, ICanPhotocopy, ICanScan {
+    public class MultiFunctionCopier : Machine {
 
         
         public void Print() {

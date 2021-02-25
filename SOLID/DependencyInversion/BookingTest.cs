@@ -1,18 +1,18 @@
 using Moq;
 using SOLID.DependencyInversion.domain.booking;
-using SOLID.DependencyInversion.domain;
+using SOLID.DependencyInversion.infrastructure;
 using Xunit;
 
 namespace SOLID.DependencyInversion
 {
     public class BookingTest
     {
-        private Mock<IAvailabilityRepository> availabilities;
+        private Mock<AvailabilityDaoImpl> availabilities;
         private BookingService booking;
 
         public BookingTest()
         {
-            availabilities = new Mock<IAvailabilityRepository>();
+            availabilities = new Mock<AvailabilityDaoImpl>();
             booking = new BookingService(availabilities.Object);
         }
 
