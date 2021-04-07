@@ -10,13 +10,15 @@ namespace SOLID.OpenClosePrinciple
         private readonly string label;
         private readonly TimeSpan duration;
         private readonly int cost;
+        private readonly int connections;
 
-        public Itinerary(Trip trip, string label, TimeSpan duration, int cost)
+        public Itinerary(Trip trip, string label, TimeSpan duration, int cost, int connections)
         {
             this.trip = trip;
             this.label = label;
             this.duration = duration;
             this.cost = cost;
+            this.connections = connections;
         }
 
         public TimeSpan Duration => this.duration;
@@ -24,6 +26,8 @@ namespace SOLID.OpenClosePrinciple
         public int Cost => this.cost;
 
         public string Label => this.label;
+        
+        public int Connections => this.connections;
 
 
         public static ItineraryBuilder Of(Trip trip)
@@ -38,6 +42,7 @@ namespace SOLID.OpenClosePrinciple
             private string label;
             private TimeSpan duration;
             private int cost;
+            private int connections;
 
             public ItineraryBuilder(Trip trip)
             {
@@ -56,11 +61,17 @@ namespace SOLID.OpenClosePrinciple
                 return this;
             }
 
+            public ItineraryBuilder Connecting(int connections)
+            {
+                this.connections = connections;
+                return this;
+            }
+            
             //TODO use Value Object MonetaryAmount
             public Itinerary Costing(int euros)
             {
                 this.cost = euros;
-                return new Itinerary(this.trip, this.label, this.duration, this.cost);
+                return new Itinerary(this.trip, this.label, this.duration, this.cost, this.connections);
             }
 
         }
