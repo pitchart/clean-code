@@ -4,14 +4,14 @@ namespace SOLID.OtherOCP
 {
     public class AreaCalculator
     {
-        public int sumAreas(List<IFigure> figures)
+        public int SumAreas(List<IFigure> figures)
         {
-            int area = 0;
+            var area = 0;
             foreach (var figure in figures)
             {
-                if (figure is Rectange)
+                if (figure is Rectangle)
                 {
-                    var rectangle = (Rectange) figure;
+                    var rectangle = (Rectangle) figure;
                     area += rectangle.Largeur * rectangle.Longueur;
                 } else if (figure is Triangle)
                 {
