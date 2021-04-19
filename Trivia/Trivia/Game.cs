@@ -109,40 +109,41 @@ namespace Trivia
 
         private void AskQuestion()
         {
-            if (CurrentCategory() == "Pop")
+
+            if (CurrentCategory() == CategoryEnum.Pop)
             {
                 Console.WriteLine(popQuestions.First());
                 popQuestions.RemoveFirst();
             }
-            if (CurrentCategory() == "Science")
+            if (CurrentCategory() == CategoryEnum.Science)
             {
                 Console.WriteLine(scienceQuestions.First());
                 scienceQuestions.RemoveFirst();
             }
-            if (CurrentCategory() == "Sports")
+            if (CurrentCategory() == CategoryEnum.Sports)
             {
                 Console.WriteLine(spotsQuestions.First());
                 spotsQuestions.RemoveFirst();
             }
-            if (CurrentCategory() == "Rock")
+            if (CurrentCategory() == CategoryEnum.Rock)
             {
                 Console.WriteLine(rockQuestions.First());
                 rockQuestions.RemoveFirst();
             }
         }
 
-        private string CurrentCategory()
+        private CategoryEnum CurrentCategory()
         {
-            if (_places[_currentPlayer] == 0) return "Pop";
-            if (_places[_currentPlayer] == 4) return "Pop";
-            if (_places[_currentPlayer] == 8) return "Pop";
-            if (_places[_currentPlayer] == 1) return "Science";
-            if (_places[_currentPlayer] == 5) return "Science";
-            if (_places[_currentPlayer] == 9) return "Science";
-            if (_places[_currentPlayer] == 2) return "Sports";
-            if (_places[_currentPlayer] == 6) return "Sports";
-            if (_places[_currentPlayer] == 10) return "Sports";
-            return "Rock";
+            if (_places[_currentPlayer] == 0) return CategoryEnum.Pop;
+            if (_places[_currentPlayer] == 4) return CategoryEnum.Pop;
+            if (_places[_currentPlayer] == 8) return CategoryEnum.Pop;
+            if (_places[_currentPlayer] == 1) return CategoryEnum.Science;
+            if (_places[_currentPlayer] == 5) return CategoryEnum.Science;
+            if (_places[_currentPlayer] == 9) return CategoryEnum.Science;
+            if (_places[_currentPlayer] == 2) return CategoryEnum.Sports;
+            if (_places[_currentPlayer] == 6) return CategoryEnum.Sports;
+            if (_places[_currentPlayer] == 10) return CategoryEnum.Sports ;
+            return CategoryEnum.Rock;
         }
 
         /// <summary>
