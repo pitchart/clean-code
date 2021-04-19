@@ -12,7 +12,7 @@ namespace Tests
     public class GameTest
     {
         [Fact]
-        public void Test1()
+        public void Golden_master_with_one_player()
         {
             var fakeconsole = new StringWriter();
             Console.SetOut(fakeconsole);
@@ -28,7 +28,7 @@ namespace Tests
         }
         
         [Fact]
-        public void Test2()
+        public void Golden_master_with_two_players()
         {
             var fakeconsole = new StringWriter();
             Console.SetOut(fakeconsole);
@@ -59,7 +59,7 @@ namespace Tests
         }
         
         [Fact]
-        public void Test3()
+        public void Golden_master_with_two_players_with_first_wrong_answer()
         {
             var fakeconsole = new StringWriter();
             Console.SetOut(fakeconsole);
